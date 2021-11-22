@@ -1,12 +1,13 @@
 package com.hz;
+import discounts.Discounts;
+import discounts.DiscountCounter;
+import discounts.NoDiscount;
+import discounts.NoSale;
 
 public class Checkout {
 
     private SalesAction salesAction;
-
-    public Checkout(SalesAction action) {
-        this.salesAction = action;
-    }
+    private Discounts discountStrategy;
 
     public void nextInLine(Customer customer) {
 
@@ -28,4 +29,9 @@ public class Checkout {
         String payinfo = String.format("Let's see, that will be.. %.02f. Cash or card?", amountToPay);
         Console.write(payinfo);
     }
+
+    public void setDiscountStrategy(Discounts discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
 }
